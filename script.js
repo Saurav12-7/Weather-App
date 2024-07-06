@@ -53,7 +53,7 @@ function switchTab(newTab) {
 
 userTab.addEventListener("click",()=>{
     if(c==1)
-    document.body.lastChild.style.cssText="display:none";
+        err.removeChild(errors);
     switchTab(userTab);
 });
 
@@ -127,9 +127,12 @@ function renderWeatherInfo(weatherInfo) {
          
         else{
              if(weatherInfo.cod!=='404' && oldTab==searchTab && c==1)
-                 err.removeChild(errors);
+                
+                {
+                    err.removeChild(errors);
+                    userInfoContainer.classList.add("active");
+                }
      
-             userInfoContainer.classList.add("active");
 
     //fetch values from weatherINfo object and put it UI elements
                 cityName.innerText = weatherInfo?.name;
