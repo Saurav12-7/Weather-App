@@ -275,3 +275,13 @@ h1{
         width: 10rem;
     }
 }
+
+.err
+{
+display: none;
+
+}
+.err.active
+{
+    display: flex;
+}

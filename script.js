@@ -7,7 +7,7 @@ const searchForm = document.querySelector("[data-searchForm]");
 const loadingScreen = document.querySelector(".loading-container");
 const userInfoContainer = document.querySelector(".user-info-container");
 
-const err=document.querySelector("#errors");
+const err=document.querySelector("[e]");
 let errors=document.createElement("div");
 let para=document.createElement("p");
 para.innerHTML="404 City Not Found";
@@ -20,6 +20,7 @@ errors.setAttribute("class","errors");
 
 errors.appendChild(para);
 errors.appendChild(saau);
+err.appendChild(errors);
 
 //initially vairables need????
 let c=0;
@@ -52,8 +53,7 @@ function switchTab(newTab) {
 }
 
 userTab.addEventListener("click",()=>{
-    if(c==1)
-        err.removeChild(errors);
+    err.classList.remove("active");
     switchTab(userTab);
 });
 
@@ -119,9 +119,8 @@ function renderWeatherInfo(weatherInfo) {
         {
             userInfoContainer.classList.remove("active");
             
-            
+            err.classList.add("active");
         
-            err.appendChild(errors);
             c=1;
         }
          
