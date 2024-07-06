@@ -13,6 +13,7 @@ const loadingScreen=document.querySelector(".loading-container");
 const userInfoContainer=document.querySelector(".user-info-container");
 
 let currentTab=userTab;
+let c=0;
 
 const API_KEY="26d9e12302633b74ac8a32bf306125e1";
 
@@ -59,7 +60,7 @@ function switchTab(clickedTab)
 }
 
 userTab.addEventListener("click",()=>{
-
+    if(c==1)
     document.body.lastChild.style.cssText="display:none";
     switchTab(userTab);
 }
@@ -122,19 +123,20 @@ function renderWeatherInfo(weatherInfo)
    const cloudiness=document.querySelector("[data-cloudiness]");
 
    
-   if(weatherInfo.cod==='404' && currentTab==searchTab)
+   if(weatherInfo.cod==='404')
    {
     userInfoContainer.classList.remove("active");
     
     errors.style.cssText="display:flex;flex-direction:column;justify-content:center;align-items:center;position:absolute;top:40%;right:38%";
 
     document.body.appendChild(errors);
+    c=1;
    }
-    else if(currentTab==searchTab && weatherInfo.cod!=='404')
-        document.body.lastChild.style.cssText="display:none";
     
     else{
-        
+        if(weatherInfo.cod!=='404' && currentTab==searchTab && c==1)
+            document.body.lastChild.style.cssText="display:none";
+
         userInfoContainer.classList.add("active");
         cityName.innerText=weatherInfo?.name;
         desc.innerText=weatherInfo?.weather?.[0]?.description;
