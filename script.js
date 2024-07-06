@@ -76,6 +76,7 @@ searchTab.addEventListener("click",()=>{
 function getfromSessionStorage()
 {
     const localCoordinates=sessionStorage.getItem("user-coodinates");
+    console.log(localCoordinates);
     if(!localCoordinates){
         grantAccessContainer.classList.add("active");
     }
@@ -89,6 +90,7 @@ function getfromSessionStorage()
 async function fetchUsWeather(coordinates)
 {
     const {lat,lon}=coordinates; 
+
     grantAccessContainer.classList.remove("active");
     loadingScreen.classList.add("active");
     try
@@ -162,9 +164,8 @@ function getLocation()
     }
     else{
         
-             loadingScreen.classList.remove("active");
-                 userInfoContainer.classList.remove("active");
-                 userInfoContainer.innerHTML.style.cssText="background-image:url(./assets/not-found.png)";
+         loadingScreen.classList.remove("active");
+         userInfoContainer.classList.remove("active");
             
     }
 }
