@@ -246,11 +246,32 @@ h1{
     background-color:var(--colorDark2) ;
 }
 
+.errors
+{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    position:absolute;
+    top:40%;
+    right:38%
+}
+.saau{
+    width: 15rem;
+}
 @media (max-width:412px)
 {
     .parameter-container
     {
-        gap:0px 0px;
-        /* justify-content:space-between; */
+        gap:0px;
+    }
+    .errors
+    {
+        right: 6%;
+        top:49%;
+    }
+    .saau
+    {
+        width: 10rem;
     }
 }

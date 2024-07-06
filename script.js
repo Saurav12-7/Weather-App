@@ -14,7 +14,8 @@ para.style.cssText="font-size:50px;color:white"
 
 let saau=document.createElement('img');
 saau.setAttribute("src","./assets/not-found.png");
-saau.style.cssText="width:15rem;";
+saau.setAttribute("class","saau");
+errors.setAttribute("class","errors");
 
 errors.appendChild(para);
 errors.appendChild(saau);
@@ -116,7 +117,7 @@ function renderWeatherInfo(weatherInfo) {
         {
             userInfoContainer.classList.remove("active");
             
-            errors.style.cssText="display:flex;flex-direction:column;justify-content:center;align-items:center;position:absolute;top:40%;right:38%";
+            
         
             document.body.appendChild(errors);
             c=1;
