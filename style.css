@@ -251,6 +251,6 @@ h1{
     .parameter-container
     {
         gap:0px 0px;
-        justify-content:space-evenly;
+        /* justify-content:space-between; */
     }
 }
