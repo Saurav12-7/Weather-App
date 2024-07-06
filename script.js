@@ -7,6 +7,7 @@ const searchForm = document.querySelector("[data-searchForm]");
 const loadingScreen = document.querySelector(".loading-container");
 const userInfoContainer = document.querySelector(".user-info-container");
 
+const err=document.querySelector("#errors");
 let errors=document.createElement("div");
 let para=document.createElement("p");
 para.innerHTML="404 City Not Found";
@@ -113,19 +114,20 @@ function renderWeatherInfo(weatherInfo) {
     const humidity = document.querySelector("[data-humidity]");
     const cloudiness = document.querySelector("[data-cloudiness]");
 
-        if(weatherInfo.cod==='404')
+    
+        if(weatherInfo.cod=='404')
         {
             userInfoContainer.classList.remove("active");
             
             
         
-            document.body.appendChild(errors);
+            err.appendChild(errors);
             c=1;
         }
          
         else{
              if(weatherInfo.cod!=='404' && oldTab==searchTab && c==1)
-                 document.body.lastChild.style.cssText="display:none";
+                 err.removeChild(errors);
      
              userInfoContainer.classList.add("active");
 
@@ -185,7 +187,9 @@ async function fetchSearchWeatherInfo(city) {
         const response = await fetch(
             `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
           );
+        
         const data = await response.json();
+        // console.log(typeof( data.cod));
         loadingScreen.classList.remove("active");
         userInfoContainer.classList.add("active");
         renderWeatherInfo(data);
