@@ -23,7 +23,7 @@ errors.appendChild(saau);
 err.appendChild(errors);
 
 //initially vairables need????
-let c=0;
+
 let oldTab = userTab;
 const API_KEY = "26d9e12302633b74ac8a32bf306125e1";
 oldTab.classList.add("current-tab");
@@ -121,11 +121,10 @@ function renderWeatherInfo(weatherInfo) {
             
             err.classList.add("active");
         
-            c=1;
         }
          
         else{
-             if(weatherInfo.cod!=='404' && oldTab==searchTab && c==1)
+             if(weatherInfo.cod!=='404' && oldTab==searchTab)
                 
                 {
                     err.removeChild(errors);
